@@ -1,4 +1,5 @@
 # SRI
+```mermaid
 sequenceDiagram
     participant Client as User Machine
     participant DHCP1 as DHCP Server 1
@@ -31,3 +32,4 @@ sequenceDiagram
     DHCP2 -->> Client: DHCPACK
     Note over Client:User stays online for 2 more hours
     Note over Client: User disconnects permanently
+```
