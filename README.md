@@ -24,7 +24,7 @@ sequenceDiagram
     Note over Client: User remains active for 4 hours more
     Note over Client: User disconnects for 1 hour
     Client ->> DHCP2: DHCPREQUEST with the previous IP used to retake the previous one
-    Note over Client,DHCP2:if the ip is in use at the moment,it will meet a DHCPNACK packet, then the client will ask for another ip by using Discover again,.
+    Note over Client,DHCP2:if the ip is in use at the moment,it will meet a DHCPNACK packet, then the client will ask for another ip by using Discover again
     Note over Client,DHCP2: In this case he wont as the lease time is 8 hours
     DHCP2 -->> Client: DHCPACK 
     Note over Client,DHCP2: User stays active for 3 hours before the lease expires. he asks for the same IP
