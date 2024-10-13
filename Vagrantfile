@@ -5,13 +5,14 @@ Vagrant.configure("2") do |config|
   config.vm.define "DHCP" do |d|
     d.vm.box = "debian/bookworm64"
     d.vm.network "private_network",
-      ip: "192.168.56.0"
+      ip: "192.168.56.10"
     d.vm.network "private_network",
-      ip: "192.168.57.0",
+      ip: "192.168.57.10",
       virtualbox__intnet:true
     d.vm.provision "shell", inline: <<-SHELL
     apt update
      apt install isc-dhcp-server -y
+     cp -v /etc/dhcp/dhcpd.conf /etc/dhcp/dhcpd.conf.bak
      cp -v ../../vagrant/DHCP/dhcpd.conf /etc/dhcp/dhcpd.conf
      cp -v ../../vagrant/DHCP/isc-dhcp-server /etc/default/isc-dhcp-server
      systemctl restart isc-dhcp-server.service
